@@ -1,6 +1,7 @@
 {
     "userspace_version": "1.0",
     "build_targets": [
-        ["keebio/iris/rev7", "fslef"]
+        ["keebio/iris/rev7", "fslef"],
+        ["boardsource/unicorne", "fslef"]
     ]
 }
