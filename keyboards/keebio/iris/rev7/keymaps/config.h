@@ -51,6 +51,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #        define ENABLE_RGB_MATRIX_DUAL_BEACON
 #        define ENABLE_RGB_MATRIX_RAINBOW_BEACON
 #        define ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
+#        define ENABLE_RGB_MATRIX_RAINDROPS
+#        define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
+#        define ENABLE_RGB_MATRIX_PIXEL_FLOW
+#        define ENABLE_RGB_MATRIX_PIXEL_RAIN
 // enabled only if RGB_MATRIX_FRAMEBUFFER_EFFECTS is defined
 #        define ENABLE_RGB_MATRIX_TYPING_HEATMAP
 #        define ENABLE_RGB_MATRIX_DIGITAL_RAIN

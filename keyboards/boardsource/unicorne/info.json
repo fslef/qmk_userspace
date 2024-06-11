@@ -12,7 +12,7 @@
         "mousekey": true,
         "nkro": true,
         "oled": true,
-        "pointing_device": false,
+        "pointing_device": true,
         "rgb_matrix": true
     },
     "indicators": {
@@ -50,9 +50,13 @@
             "alphas_mods": true,
             "band_sat": true,
             "band_val": true,
-            "breathing": true,
             "gradient_left_right": true,
-            "gradient_up_down": true
+            "gradient_up_down": true,
+            "raindrops": true,
+            "jellybean_rainbow": true,
+            "pixel_flow": true,
+            "pixel_rain": true
+
         },
         "default": {
             "animation": "alphas_mods"
