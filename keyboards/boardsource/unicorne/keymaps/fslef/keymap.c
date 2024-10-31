@@ -31,8 +31,8 @@ enum combos {
   ER_HASH,
   YU_CARET,
   IO_LPAREN,
-  OP_RPAREN
-};
+  OP_RPAREN,
+  RT_DOLLAR};
 
 const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
@@ -40,6 +40,7 @@ const uint16_t PROGMEM er_combo[] = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM yu_combo[] = {KC_Y, KC_U, COMBO_END};
 const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM rt_combo[] = {KC_R, KC_T, COMBO_END};
 
 combo_t key_combos[] = {
   [QW_EXCL] = COMBO(qw_combo, KC_EXLM),  // q and w = !
