@@ -47,7 +47,8 @@ combo_t key_combos[] = {
   [ER_HASH] = COMBO(er_combo, KC_HASH),  // e and r = #
   [YU_CARET] = COMBO(yu_combo, KC_CIRC), // y and u = ^
   [IO_LPAREN] = COMBO(io_combo, KC_LPRN),// i and o = (
-  [OP_RPAREN] = COMBO(op_combo, KC_RPRN) // o and p = )
+  [OP_RPAREN] = COMBO(op_combo, KC_RPRN), // o and p = )
+  [RT_DOLLAR] = COMBO(rt_combo, KC_DLR) // r and t = $
 };
 
 
