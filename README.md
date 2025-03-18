@@ -1,7 +1,7 @@
 # Guide to Setting Up and Compiling Custom QMK Firmware
 
 ## Prepare the Dev Environment
-1. Run `qmk setup -H ~/gitrepos/fslef/qmk-firmware/` to set up the QMK environment (see [QMK Docs](https://docs.qmk.fm/#/newbs) for details).
+1. Run `qmk setup -H ~/gitrepos/fslef/qmk_firmware/` to set up the QMK environment (see [QMK Docs](https://docs.qmk.fm/#/newbs) for details).
 2. Accept to clone the QMK_Firmware repo
 
 ## Build the Firmware
