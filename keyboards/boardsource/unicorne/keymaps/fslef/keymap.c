@@ -75,13 +75,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LOWER] = LAYOUT(
         KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, KC_CIRC, KC_ASTR, KC_AMPR, KC_LBRC, KC_RBRC, XXXXXXX, KC_RSFT, KC_LALT, KC_RCTL, KC_RGUI, XXXXXXX,
-        KC_DLR,  KC_PERC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_DLR,  KC_PERC, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_CODE] = LAYOUT(
-        KC_F7,   KC_F5,   KC_7,    KC_8,    KC_9,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_F7,   KC_F5,   KC_7,    KC_8,    KC_9,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
         KC_F10,  KC_F11,  KC_4,    KC_5,    KC_6,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_GRV,  KC_PIPE, KC_1,    KC_2,    KC_3,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                    KC_DOT,  KC_0,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
     ),
 };
+
+bool rgb_matrix_indicators_user(void) {
+    // Apply LED_MATRIX_ALPHAS_MODS by default for all layers
+    if (!rgb_matrix_is_enabled()) {
+        return false;
+    }
+
+    // Check if the CODE layer is active
+    if (IS_LAYER_ON(_CODE)) {
+        // Correct key IDs for KC_0 to KC_9 based on the matrix layout
+        rgb_matrix_set_color(13, RGB_GREEN); // KC_0
+        rgb_matrix_set_color(20, RGB_GREEN); // KC_1
+        rgb_matrix_set_color(15, RGB_GREEN); // KC_2
+        rgb_matrix_set_color(12, RGB_GREEN); // KC_3
+        rgb_matrix_set_color(19, RGB_GREEN); // KC_4
+        rgb_matrix_set_color(16, RGB_GREEN); // KC_5
+        rgb_matrix_set_color(11, RGB_GREEN); // KC_6
+        rgb_matrix_set_color(10, RGB_GREEN); // KC_7
+        rgb_matrix_set_color(17, RGB_GREEN); // KC_8
+        rgb_matrix_set_color(18, RGB_GREEN); // KC_9
+        rgb_matrix_set_color(40, RGB_GREEN); // CODE
+    }
+
+    return false; // Ensure LED_MATRIX_ALPHAS_MODS remains active
+}
