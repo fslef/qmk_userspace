@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    KC_0,    KC_DOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_CODE] = LAYOUT(
-        KC_EXLM, KC_HASH, KC_DLR,  KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_HASH, KC_EXLM, KC_DLR,  KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, KC_F5,   KC_F8,   KC_PIPE, KC_LBRC, KC_RBRC, XXXXXXX, KC_RSFT, KC_LALT, KC_RCTL, KC_RGUI, XXXXXXX,
         XXXXXXX, KC_F10,  KC_F11,  KC_F12,  KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -82,8 +82,8 @@ bool rgb_matrix_indicators_user(void) {
         return false;
     }
 
-    // Check if the CODE layer is active
-    if (IS_LAYER_ON(_CODE)) {
+    // Check if the LOWER layer is active
+    if (IS_LAYER_ON(_LOWER)) {
         // Correct key IDs for KC_0 to KC_9 based on the matrix layout
         rgb_matrix_set_color(14, RGB_GREEN); // KC_0
         rgb_matrix_set_color(20, RGB_GREEN); // KC_1
@@ -96,7 +96,7 @@ bool rgb_matrix_indicators_user(void) {
         rgb_matrix_set_color(17, RGB_GREEN); // KC_8
         rgb_matrix_set_color(18, RGB_GREEN); // KC_9
         rgb_matrix_set_color(40, RGB_GREEN); // CODE
-        rgb_matrix_set_color(13, RGB_PURPLE); // KC_DOT
+        rgb_matrix_set_color(13, RGB_GREEN); // KC_DOT
     }
 
     // Check if the RAISE layer is active
