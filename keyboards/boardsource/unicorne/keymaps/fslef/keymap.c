@@ -2,6 +2,11 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 #include QMK_KEYBOARD_H
 
+// Tap Dance declarations
+enum {
+    TD_BOOT,
+};
+
 enum layers {
     _MAIN,
     _RAISE,
@@ -33,12 +38,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_BSPC,
         KC_LCTL, HOME_A,  HOME_S,  HOME_D,  HOME_F,  KC_G,    KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SLN, KC_QUOT,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ESC,
-                                   KC_LGUI, RAISE,   KC_SPC,  KC_ENT,  LOWER,   CODE
+                                   KC_LGUI, RAISE,   KC_SPC,  KC_ENT,  CODE,    LOWER
     ),
     [_RAISE] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGUP, XXXXXXX, KC_UP,   XXXXXXX, KC_VOLU, KC_DEL ,
         XXXXXXX, KC_LGUI, KC_LCTL, KC_LALT, KC_LSFT, XXXXXXX, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, RGB_MOD, QK_BOOT, QK_GESC,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, RGB_MOD, TD(TD_BOOT), QK_GESC,
                                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_LOWER] = LAYOUT(
@@ -53,6 +58,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, KC_F10,  KC_F11,  KC_F12,  KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
     ),
+};
+
+// Tap Dance function for bootloader
+void dance_boot_finished(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 2) {
+        reset_keyboard();
+    }
+}
+
+// Tap Dance definitions
+tap_dance_action_t tap_dance_actions[] = {
+    [TD_BOOT] = ACTION_TAP_DANCE_FN(dance_boot_finished),
 };
 
 
