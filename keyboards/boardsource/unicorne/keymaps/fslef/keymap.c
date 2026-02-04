@@ -30,14 +30,45 @@ enum layers {
 #define HOME_L RCTL_T(KC_L)
 #define HOME_SLN RGUI_T(KC_SCLN)
 
+// enum combos {
+//   QW_EXCL,
+//   WE_AT,
+//   ER_HASH,
+//   YU_CARET,
+//   IO_LPAREN,
+//   OP_RPAREN,
+//   RT_DOLLAR,
+//   UI_AST
+//   };
+
+// const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
+// const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
+// const uint16_t PROGMEM er_combo[] = {KC_E, KC_R, COMBO_END};
+// const uint16_t PROGMEM yu_combo[] = {KC_Y, KC_U, COMBO_END};
+// const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
+// const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
+// const uint16_t PROGMEM rt_combo[] = {KC_R, KC_T, COMBO_END};
+// const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
+
+// combo_t key_combos[] = {
+//   [QW_EXCL] = COMBO(qw_combo, KC_EXLM),  // q and w = !
+//   [WE_AT] = COMBO(we_combo, KC_AT),      // w and e = @
+//   [ER_HASH] = COMBO(er_combo, KC_HASH),  // e and r = #
+//   [YU_CARET] = COMBO(yu_combo, KC_CIRC), // y and u = ^
+//   [IO_LPAREN] = COMBO(io_combo, KC_LPRN),// i and o = (
+//   [OP_RPAREN] = COMBO(op_combo, KC_RPRN), // o and p = )
+//   [RT_DOLLAR] = COMBO(rt_combo, KC_DLR), // r and t = $
+//   [UI_AST] = COMBO(ui_combo, KC_ASTR) // u and i = *
+// };
+
 // Layer Keymaps
 // Keycodes list is available at: https://docs.qmk.fm/#/keycodes
 // https://www.keyboard-layout-editor.com/#/gists/963e2a6a5ace882b9ed85b874318cb16
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MAIN] = LAYOUT(
-        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_BSPC,
-        KC_LCTL, HOME_A,  HOME_S,  HOME_D,  HOME_F,  KC_G,    KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SLN, KC_QUOT,
-        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ESC,
+        KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_BSPC,
+        KC_TAB, HOME_A,  HOME_S,  HOME_D,  HOME_F,  KC_G,    KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SLN, KC_QUOT,
+        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                                    KC_LGUI, RAISE,   KC_SPC,  KC_ENT,  CODE,    LOWER
     ),
     [_RAISE] = LAYOUT(
@@ -102,7 +133,7 @@ bool rgb_matrix_indicators_user(void) {
     // Check if the LOWER layer is active
     if (IS_LAYER_ON(_LOWER)) {
         // Correct key IDs for KC_0 to KC_9 based on the matrix layout
-        rgb_matrix_set_color(14, RGB_GREEN); // KC_0
+        rgb_matrix_set_color(13, RGB_GREEN); // KC_0
         rgb_matrix_set_color(20, RGB_GREEN); // KC_1
         rgb_matrix_set_color(15, RGB_GREEN); // KC_2
         rgb_matrix_set_color(12, RGB_GREEN); // KC_3
